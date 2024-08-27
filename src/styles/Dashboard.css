@@ -1,0 +1,103 @@
+/* src/styles/Dashboard.css */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(17, 24, 39, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .dashboard-container h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.5);
+  }
+  
+  .dashboard-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .dashboard-section {
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .dashboard-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .dashboard-section h2 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dashboard-section h2 svg {
+    margin-right: 0.5rem;
+  }
+  
+  .team-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .team-list li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-list a {
+    color: #e5e7eb;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  .team-list a:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+  
+  .team-list a svg {
+    margin-right: 0.5rem;
+  }
+  
+  .dashboard-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #3b82f6, #ef4444);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .dashboard-button:hover {
+    background: linear-gradient(45deg, #2563eb, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 1rem;
+    }
+  
+    .dashboard-content {
+      grid-template-columns: 1fr;
+    }
+  }

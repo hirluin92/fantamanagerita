@@ -1,0 +1,132 @@
+/* src/styles/AuthForms.css */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0e17;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+    url('https://example.com/soccer-field-dark-background.jpg');
+  background-size: cover, cover, cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 2rem;
+}
+
+.auth-card {
+  background-color: rgba(17, 24, 39, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+}
+
+.auth-header {
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  color: #ffffff;
+  padding: 2rem;
+  text-align: center;
+}
+
+.auth-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(29, 78, 216, 0.5);
+}
+
+.auth-header p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.auth-form {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #4b5563;
+  background-color: rgba(55, 65, 81, 0.5);
+  color: #e5e7eb;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.auth-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-button:disabled {
+  background: #4b5563;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #ef4444;
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.auth-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(31, 41, 55, 0.5);
+  border-top: 1px solid #4b5563;
+}
+
+.auth-footer a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-footer a:hover {
+  color: #2563eb;
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    border-radius: 0;
+  }
+}

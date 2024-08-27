@@ -1,0 +1,59 @@
+.sala-attesa-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(17, 24, 39, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .sala-attesa-container h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.5);
+  }
+  
+  .sala-attesa-container p {
+    color: #e5e7eb;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .sala-attesa-container button {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(45deg, #3b82f6, #ef4444);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .sala-attesa-container button:hover {
+    background: linear-gradient(45deg, #2563eb, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 600px) {
+    .sala-attesa-container {
+      padding: 1rem;
+    }
+  
+    .sala-attesa-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .sala-attesa-container p {
+      font-size: 1rem;
+    }
+  }

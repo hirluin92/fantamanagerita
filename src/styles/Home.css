@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0a0e17;
+  color: #e5e7eb;
+}
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0e17;
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
+    url('https://example.com/soccer-field-dark-background.jpg');
+  background-size: cover, cover, cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 2rem;
+}
+
+.home-content {
+  max-width: 1200px;
+  width: 100%;
+  padding: 3rem;
+  background-color: rgba(17, 24, 39, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.home-header h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(29, 78, 216, 0.5), 0 0 20px rgba(220, 38, 38, 0.5);
+}
+
+.home-header p {
+  font-size: 1.2rem;
+  color: #9ca3af;
+}
+
+.home-header h1 svg {
+  animation: rotateBall 10s linear infinite;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+@keyframes rotateBall {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.feature {
+  background-color: rgba(31, 41, 55, 0.5);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.1) 0%, transparent 70%);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.feature:hover::before {
+  top: -75%;
+  left: -75%;
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+.feature h2 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.feature p {
+  color: #9ca3af;
+}
+
+.home-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #3b82f6;
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.btn-secondary:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.6);
+}
+
+@media (max-width: 768px) {
+  .home-content {
+    padding: 2rem;
+  }
+
+  .home-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-features {
+    grid-template-columns: 1fr;
+  }
+
+  .btn {
+    display: block;
+    margin: 1rem auto;
+  }
+}

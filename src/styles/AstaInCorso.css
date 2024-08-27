@@ -1,0 +1,92 @@
+.asta-in-corso-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(17, 24, 39, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .asta-in-corso-container h2 {
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.5);
+  }
+  
+  .giocatore-attuale {
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .giocatore-attuale h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .giocatore-attuale p {
+    color: #e5e7eb;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .giocatore-attuale button {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(45deg, #3b82f6, #ef4444);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .giocatore-attuale button:hover {
+    background: linear-gradient(45deg, #2563eb, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .seleziona-giocatore {
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+  }
+  
+  .seleziona-giocatore h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .partecipanti {
+    background-color: rgba(31, 41, 55, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  
+  .partecipanti h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .partecipanti ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .partecipanti li {
+    color: #e5e7eb;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }

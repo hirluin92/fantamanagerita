@@ -1,0 +1,105 @@
+/* src/styles/TeamManagement.css */
+.team-management-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(17, 24, 39, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .team-management-container h2 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.5);
+  }
+  
+  .create-team-form {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  
+  .create-team-form input {
+    flex-grow: 1;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #4b5563;
+    background-color: rgba(55, 65, 81, 0.5);
+    color: #e5e7eb;
+    border-radius: 5px 0 0 5px;
+  }
+  
+  .create-team-form button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: linear-gradient(45deg, #3b82f6, #ef4444);
+    color: #ffffff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .create-team-form button:hover:not(:disabled) {
+    background: linear-gradient(45deg, #2563eb, #dc2626);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-team-form button:disabled {
+    background: #4b5563;
+    cursor: not-allowed;
+  }
+  
+  .error-message {
+    color: #ef4444;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .teams-list h3 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .teams-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .teams-list li {
+    background-color: rgba(55, 65, 81, 0.5);
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #e5e7eb;
+    transition: all 0.3s ease;
+  }
+  
+  .teams-list li:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 600px) {
+    .team-management-container {
+      padding: 1rem;
+    }
+  
+    .create-team-form {
+      flex-direction: column;
+    }
+  
+    .create-team-form input,
+    .create-team-form button {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 0.5rem;
+    }
+  }
