@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+.create-league-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #0a0e17, #1a1f2e);
+  font-family: 'Orbitron', sans-serif;
+  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.create-league-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: stars 4s linear infinite;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+@keyframes stars {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
+}
+
+.create-league-card {
+  background: rgba(26, 31, 46, 0.7);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 194, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 194, 255, 0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.create-league-card h2 {
+  text-align: center;
+  color: #00c2ff;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(0, 194, 255, 0.7);
+}
+
+.form-group,
+.file-upload-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-group label,
+.file-upload-group label:not(.file-upload-label) {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #a0aec0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.form-group input[type="text"],
+.file-upload-label,
+.btn-primary,
+.btn-secondary {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 194, 255, 0.3);
+  background-color: rgba(10, 15, 30, 0.6);
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #00c2ff;
+  box-shadow: 0 0 0 2px rgba(0, 194, 255, 0.2);
+}
+
+.file-upload-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a4b78;
+  cursor: pointer;
+}
+
+.file-upload-label:hover {
+  background-color: #0d5c8f;
+}
+
+.logo-preview {
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.logo-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #0a4b78, #00c2ff);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #00c2ff;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 194, 255, 0.4);
+}
+
+.btn-primary:disabled {
+  background: #4a5568;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .create-league-card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}

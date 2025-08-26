@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+:root {
+  --primary-color: #00c2ff;
+  --secondary-color: #0a4b78;
+  --accent-color: #ff00ff;
+  --bg-color: #050816;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: moveStars 30s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 0 -800px; }
+}
+
+.dashboard-container {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.dashboard-logo-container {
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.dashboard-logo {
+  max-width: 300px;
+  height: auto;
+  animation: logoFloat 6s ease-in-out infinite, logoGlow 4s infinite alternate;
+}
+
+.dashboard-container h1 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+}
+
+.dashboard-container h2 {
+  color: #e5e7eb;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  gap: 1rem;
+}
+
+.dashboard-section {
+  background: rgba(31, 41, 55, 0.6);
+  padding: 1.5rem;
+  border-radius: 20px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  min-width: 280px;
+  margin: 0.5rem;
+  flex: 1;
+  max-width: calc(33.333% - 1rem);
+}
+
+.dashboard-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 194, 255, 0.1) 0%, transparent 70%);
+  transform: rotate(45deg);
+  z-index: -1;
+  transition: all 0.5s ease;
+}
+
+.dashboard-section:hover::before {
+  top: -30%;
+  left: -30%;
+}
+
+.dashboard-section h2 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  text-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+}
+
+.dashboard-section h2 svg {
+  margin-right: 0.5rem;
+  animation: iconPulse 2s infinite alternate;
+}
+
+.team-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.team-list li {
+  margin-bottom: 0.5rem;
+}
+
+.team-list a {
+  color: #e5e7eb;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, rgba(10, 75, 120, 0.4), rgba(0, 194, 255, 0.4));
+  position: relative;
+  overflow: hidden;
+}
+
+.team-list a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.team-list a:hover::before {
+  transform: translateX(100%);
+}
+
+.team-list a:hover {
+  transform: translateX(10px);
+  background: linear-gradient(45deg, rgba(10, 75, 120, 0.6), rgba(0, 194, 255, 0.6));
+}
+
+.team-list a svg {
+  margin-right: 0.5rem;
+  color: var(--primary-color);
+}
+
+.dashboard-button {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+  color: var(--text-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dashboard-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+  z-index: -1;
+  transition: transform 0.6s;
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.dashboard-button:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.dashboard-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 194, 255, 0.4);
+}
+
+.user-stats p {
+  margin: 0.5rem 0;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.particle {
+  position: fixed;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+@keyframes particleAnimation {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty));
+    opacity: 0;
+  }
+}
+
+@keyframes containerEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) rotateX(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes logoGlow {
+  0% { filter: drop-shadow(0 0 5px rgba(0, 194, 255, 0.7)); }
+  100% { filter: drop-shadow(0 0 20px rgba(0, 194, 255, 1)); }
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-section {
+    max-width: 100%;
+  }
+
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-logo {
+    max-width: 200px;
+  }
+
+  .dashboard-container h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-container h2 {
+    font-size: 1rem;
+  }
+
+  .dashboard-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}

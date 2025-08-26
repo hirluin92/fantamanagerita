@@ -1,0 +1,144 @@
+.team-selection {
+    background: rgba(10, 75, 120, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 194, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 255, 0.1);
+  }
+  
+  .team-selection__title {
+    font-size: 1.8rem;
+    color: #00c2ff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 194, 255, 0.5);
+  }
+  
+  .team-selection__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .team-selection__item {
+    background: rgba(31, 41, 55, 0.6);
+    border-radius: 15px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 194, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .team-selection__item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 194, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+  }
+  
+  .team-selection__item:hover::before {
+    top: -75%;
+    left: -75%;
+  }
+  
+  .team-selection__item:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 194, 255, 0.2);
+  }
+  
+  .team-selection__item.selected {
+    background: rgba(0, 194, 255, 0.3);
+    border-color: #00c2ff;
+  }
+  
+  .team-selection__logo-container {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .team-selection__logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .team-selection__name {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  .team-selection__confirm-btn {
+    display: block;
+    width: 200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    background: linear-gradient(45deg, #0a4b78, #00c2ff);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .team-selection__confirm-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 194, 255, 0.4);
+  }
+  
+  .team-selection__confirm-btn:disabled {
+    background: #4a5568;
+    cursor: not-allowed;
+  }
+  
+  .team-selection__no-teams {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .team-selection {
+      padding: 1rem;
+    }
+  
+    .team-selection__title {
+      font-size: 1.5rem;
+    }
+  
+    .team-selection__list {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+  
+    .team-selection__logo-container {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .team-selection__name {
+      font-size: 0.9rem;
+    }
+  }

@@ -1,0 +1,839 @@
+.asta-in-corso-container {
+  max-width: 1000px;
+  margin: 6rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 4px rgba(59, 130, 246, 0.8);
+  backdrop-filter: blur(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.1, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.asta-in-corso-container.full-width {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+.asta-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.asta-main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.asta-in-corso-container::before,
+.asta-in-corso-container::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), rgba(249, 115, 22, 0.3));
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.8;
+  animation: float 6s ease-in-out infinite;
+}
+
+.asta-in-corso-container::before {
+  top: -100px;
+  left: -100px;
+}
+
+.asta-in-corso-container::after {
+  bottom: -100px;
+  right: -100px;
+  animation-delay: 3s;
+}
+
+.reparto-title {
+  color: #ffffff;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(29, 78, 216, 0.8), 0 0 30px rgba(249, 115, 22, 0.8);
+  animation: textGlow 2s ease-in-out infinite alternate, textFloat 4s ease-in-out infinite;
+  font-weight: 700;
+}
+
+.calciatore-name {
+  color: #ffffff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(249, 115, 22, 0.7);
+}
+
+/* Stile per il messaggio del turno */
+.asta-main h3 {
+  color: #ffffff !important;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.8), 0 0 25px rgba(249, 115, 22, 0.8);
+  font-weight: 600;
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+/* Stile specifico per "Utente sconosciuto" */
+.asta-main h3:contains("Utente sconosciuto"),
+.asta-main h3:contains("È il turno di") {
+  color: #ffffff !important;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(59, 130, 246, 0.8);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.calciatore-name span {
+  display: inline-block;
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGradientAnimation 3s ease-in-out infinite alternate;
+}
+
+.current-bid-display {
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(249, 115, 22, 0.7);
+  animation: bidGlow 1s ease-in-out infinite alternate;
+}
+
+.bidding-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.bidding-buttons button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bidding-buttons button:nth-child(1) {
+  background: linear-gradient(45deg, #3b82f6, #2563eb);
+}
+
+.bidding-buttons button:nth-child(2) {
+  background: linear-gradient(45deg, #2563eb, #1d4ed8);
+}
+
+.bidding-buttons button:nth-child(3) {
+  background: linear-gradient(45deg, #1d4ed8, #1e40af);
+}
+
+.bidding-buttons button:nth-child(4) {
+  background: linear-gradient(45deg, #1e40af, #1e3a8a);
+}
+
+.bidding-buttons button:nth-child(5) {
+  background: linear-gradient(45deg, #ef4444, #dc2626);
+}
+
+.bidding-buttons button:nth-child(6) {
+  background: linear-gradient(45deg, #9b1c1c, #7f1d1d);
+}
+
+.bidding-buttons button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.bidding-buttons button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(59, 130, 246, 0.6);
+}
+
+.bidding-buttons button:hover::before {
+  transform: translate(0%, 0%) rotate(45deg);
+}
+
+.timer {
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(249, 115, 22, 0.7);
+  animation: timerGlow 1s ease-in-out infinite alternate;
+}
+
+.admin-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.admin-buttons button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 1, 0.2, 1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-buttons button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  transform: translate(-100%, -100%) rotate(45deg);
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+}
+
+.admin-buttons button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(59, 130, 246, 0.6);
+}
+
+.admin-buttons button:hover::before {
+  transform: translate(0%, 0%) rotate(45deg);
+}
+
+.countdown {
+  font-size: 6rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(249, 115, 22, 0.8);
+  animation: countdownGlow 2s ease-in-out infinite alternate, countdownPulse 1s ease-in-out infinite;
+}
+
+.start-message {
+  font-size: 4rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(249, 115, 22, 0.8);
+  animation: startMessageGlow 2s ease-in-out infinite alternate, startMessageZoom 1s ease-in-out;
+}
+
+.your-turn {
+  color: #22c55e;
+  font-weight: bold;
+  animation: yourTurnPulse 1s ease-in-out infinite;
+}
+
+/* Stili per la Sidebar */
+.sidebar {
+  position: sticky;
+  top: 2rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 15px;
+  padding: 1rem;
+  height: fit-content;
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 1rem;
+  right: -15px;
+  width: 30px;
+  height: 30px;
+  background: #3b82f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.sidebar-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.5);
+}
+
+.team-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.team-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.team-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-icon:hover {
+  transform: scale(1.1);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.team-icon.active {
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+.team-details {
+  border-top: 1px solid rgba(59, 130, 246, 0.3);
+  padding-top: 1rem;
+}
+
+.team-details h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.team-info {
+  margin-bottom: 1.5rem;
+}
+
+.team-info p {
+  color: #cbd5e1;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.team-info svg {
+  margin-right: 0.5rem;
+  color: #3b82f6;
+}
+
+.player-section {
+  margin-bottom: 1.5rem;
+}
+
+.player-section h4 {
+  color: #3b82f6;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  padding-bottom: 0.25rem;
+}
+
+.player-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.player-name {
+  color: #ffffff;
+}
+
+.player-cost {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* Animazioni */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 15px rgba(29, 78, 216, 0.8), 0 0 30px rgba(249, 115, 22, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 25px rgba(29, 78, 216, 0.9), 0 0 50px rgba(249, 115, 22, 0.9);
+  }
+}
+
+@keyframes textFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes textGradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes bidGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(249, 115, 22, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.7), 0 0 30px rgba(249, 115, 22, 0.7);
+  }
+}
+
+@keyframes timerGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.7), 0 0 20px rgba(249, 115, 22, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.7), 0 0 30px rgba(249, 115, 22, 0.7);
+  }
+}
+
+@keyframes countdownGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(249, 115, 22, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(249, 115, 22, 0.8);
+  }
+}
+
+@keyframes countdownPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes startMessageGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(249, 115, 22, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 40px rgba(59, 130, 246, 0.8), 0 0 60px rgba(249, 115, 22, 0.8);
+  }
+}
+
+@keyframes startMessageZoom {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes yourTurnPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .asta-in-corso-container.full-width {
+    flex-direction: column;
+  }
+
+  .asta-in-corso-container {
+    margin: 4rem auto;
+    padding: 1.5rem;
+  }
+
+  .reparto-title {
+    font-size: 2.5rem;
+  }
+
+  .calciatore-name {
+    font-size: 2rem;
+  }
+
+  .current-bid-display {
+    font-size: 3.5rem;
+  }
+
+  .bidding-buttons {
+    flex-wrap: wrap;
+  }
+
+  .bidding-buttons button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  .timer {
+    font-size: 1.8rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    top: auto;
+  }
+
+  .sidebar.expanded {
+    height: 300px;
+  }
+
+  .team-icons {
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .team-icon {
+    margin: 0 5px;
+  }
+
+  .team-details {
+    height: calc(100% - 80px);
+  }
+}
+
+@media (max-width: 768px) {
+  .asta-in-corso-container {
+    margin: 3rem auto;
+    padding: 1rem;
+  }
+
+  .reparto-title {
+    font-size: 2rem;
+  }
+
+  .calciatore-name {
+    font-size: 1.8rem;
+  }
+
+  .current-bid-display {
+    font-size: 3rem;
+  }
+
+  .bidding-buttons {
+    gap: 0.5rem;
+  }
+
+  .bidding-buttons button {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  .timer {
+    font-size: 1.5rem;
+  }
+
+  .admin-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .admin-buttons button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar.expanded {
+    height: 250px;
+  }
+
+  .team-details {
+    padding: 15px;
+  }
+
+  .team-details h3 {
+    font-size: 1.1em;
+  }
+
+  .team-info p {
+    font-size: 0.8em;
+  }
+
+  .team-details h4 {
+    font-size: 1em;
+  }
+
+  .player-list li {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .asta-in-corso-container {
+    margin: 2rem auto;
+    padding: 0.8rem;
+  }
+
+  .reparto-title {
+    font-size: 1.5rem;
+  }
+
+  .calciatore-name {
+    font-size: 1.3rem;
+  }
+
+  .current-bid-display {
+    font-size: 2.5rem;
+  }
+
+  .bidding-buttons button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+
+  .timer {
+    font-size: 1.2rem;
+  }
+
+  .countdown {
+    font-size: 4rem;
+  }
+
+  .start-message {
+    font-size: 2.5rem;
+  }
+
+  .sidebar.expanded {
+    height: 200px;
+  }
+
+  .team-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .team-details h3 {
+    font-size: 1em;
+  }
+
+  .team-info p,
+  .player-list li {
+    font-size: 0.7em;
+  }
+}
+
+/* Player Selection */
+.player-selection {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.player-selection input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.player-selection input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.player-selection input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.player-selection ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.player-selection li {
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.player-selection li:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+.loading-giocatori {
+  text-align: center;
+  padding: 2rem;
+}
+
+.loading-giocatori p {
+  color: #3b82f6;
+  font-size: 1.2rem;
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Bidding Phase */
+.bidding-phase {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.bidding-phase h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  font-size: 2rem;
+  text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+}
+
+.calciatore-name span {
+  background: linear-gradient(45deg, #3b82f6, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.current-bid-display {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #10b981;
+  margin: 2rem 0;
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+}
+
+.user-credits {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #f59e0b;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.timer {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #ef4444;
+  margin: 2rem 0;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
+  animation: timerPulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes timerPulse {
+  0% { opacity: 0.8; }
+  100% { opacity: 1; }
+}
+
+/* Sidebar */
+.asta-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .asta-content {
+    grid-template-columns: 1fr;
+  }
+}

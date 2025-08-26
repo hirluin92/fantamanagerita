@@ -1,0 +1,54 @@
+.draw-animation {
+    background: rgba(10, 75, 120, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 194, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 194, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .draw-animation__name-display {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #00c2ff;
+    text-shadow: 0 0 10px rgba(0, 194, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.7);
+    transition: all 0.3s ease;
+  }
+  
+  .draw-animation::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 194, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    animation: glowingBackground 5s linear infinite;
+  }
+  
+  @keyframes glowingBackground {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .draw-animation {
+      padding: 1rem;
+    }
+  
+    .draw-animation__name-display {
+      font-size: 1.5rem;
+      height: 100px;
+    }
+  }

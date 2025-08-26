@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+:root {
+  --primary-color: #00c2ff;
+  --secondary-color: #0a4b78;
+  --accent-color: #ff00ff;
+  --bg-color: #050816;
+  --text-color: #ffffff;
+}
+
+.aste-in-attesa-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #0a0e17, #1a1f2e);
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  z-index: 1;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: stars 5s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.aste-in-attesa-content {
+  max-width: 800px;
+  width: 90%;
+  padding: 3rem;
+  background: rgba(26, 31, 46, 0.7);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 194, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 194, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.aste-in-attesa-container h2 {
+  color: var(--text-color);
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(29, 78, 216, 0.8), 0 0 30px rgba(249, 115, 22, 0.8);
+  animation: textGlow 2s ease-in-out infinite alternate, textFloat 4s ease-in-out infinite;
+}
+
+.asta-card {
+  background-color: rgba(31, 41, 55, 0.8);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.asta-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(59, 130, 246, 0.7);
+}
+
+.asta-card h3 {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.asta-card p {
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+}
+
+.asta-card button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+  color: var(--text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.asta-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

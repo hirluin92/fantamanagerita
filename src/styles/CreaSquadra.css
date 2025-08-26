@@ -8,13 +8,25 @@
   --text-color: #ffffff;
 }
 
-body, html {
+body {
   margin: 0;
   padding: 0;
   font-family: 'Orbitron', sans-serif;
   background-color: var(--bg-color);
   color: var(--text-color);
   overflow-x: hidden;
+}
+
+.crea-squadra-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #0a0e17, #1a1f2e);
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
 }
 
 .stars {
@@ -41,10 +53,10 @@ body, html {
   100% { transform: translateY(-200px); }
 }
 
-.layout-content {
-  max-width: 1400px;
+.crea-squadra-content {
+  max-width: 400px;
   width: 90%;
-  padding: 3rem;
+  padding: 2rem;
   background: rgba(26, 31, 46, 0.7);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 194, 255, 0.3);
@@ -52,4 +64,49 @@ body, html {
   border: 1px solid rgba(0, 194, 255, 0.1);
   position: relative;
   z-index: 1;
+}
+
+.crea-squadra-content h2 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 194, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.7);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 194, 255, 0.4);
 }

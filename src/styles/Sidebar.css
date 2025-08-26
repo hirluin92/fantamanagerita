@@ -1,0 +1,138 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 80px;
+    background: rgba(26, 32, 44, 0.9);
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+    color: white;
+    z-index: 1000;
+  }
+  
+  .sidebar.expanded {
+    width: 500px;
+  }
+  
+  .sidebar-toggle {
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+  }
+  
+  .team-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .team-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  
+  .team-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .team-icon.active {
+    border: 2px solid #3498db;
+    border-radius: 50%;
+  }
+  
+  .team-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .team-details {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100% - 60px);
+  }
+  
+  .team-details h3 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+  }
+  
+  .team-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+  }
+  
+  .team-info p svg {
+    margin-right: 8px;
+    width: 16px;
+  }
+  
+  .team-details h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #3498db;
+  }
+  
+  .player-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  
+  .player-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .player-name {
+    flex: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .player-cost {
+    flex: 1;
+    text-align: right;
+    color: #2ecc71;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar.expanded {
+      width: 250px;
+    }
+  
+    .team-details {
+      padding: 15px;
+    }
+  
+    .team-details h3 {
+      font-size: 1.1em;
+    }
+  
+    .team-info p {
+      font-size: 0.8em;
+    }
+  
+    .team-details h4 {
+      font-size: 1em;
+    }
+  
+    .player-list li {
+      font-size: 0.8em;
+    }
+  }

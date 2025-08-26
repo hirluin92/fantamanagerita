@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap');
+
+.league-draw {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.95));
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  color: #ffffff;
+}
+
+.league-draw__title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: #ffffff;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+  font-weight: 700;
+}
+
+.league-draw__start-btn {
+  display: block;
+  margin: 2rem auto;
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #3b82f6, #10b981);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.league-draw__start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+}
+
+/* Draw Animation - Slot Machine Style */
+.draw-animation {
+  position: relative;
+  text-align: center;
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* Assicurati che il container sia sempre visibile */
+  min-height: 300px;
+  width: 100%;
+  /* Previeni problemi di layout */
+  overflow: visible;
+}
+
+/* Assicurati che il nome display sia sempre centrato e visibile */
+.name-display {
+  position: relative;
+  height: 200px;
+  width: 800px; /* Larghezza fissa per evitare ridimensionamenti */
+  min-width: 800px; /* Larghezza minima fissa */
+  max-width: 800px; /* Larghezza massima fissa */
+  overflow: hidden;
+  margin: 2rem auto;
+  background: rgba(59, 130, 246, 0.1);
+  border: 3px solid rgba(59, 130, 246, 0.4);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.4);
+  /* Aggiungi dimensioni fisse per evitare ridimensionamenti */
+  box-sizing: border-box;
+  /* Assicurati che sia sempre visibile */
+  z-index: 10;
+}
+
+.name-display span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff !important; /* Forza il colore bianco */
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.9);
+  opacity: 1 !important; /* Forza l'opacità a 1 */
+  transform: translateY(0);
+  transition: all 0.2s ease-in-out;
+  /* Assicurati che il testo sia sempre visibile */
+  z-index: 10;
+  background: transparent;
+}
+
+/* Effetto slot machine - nome che scorre */
+.name-display.animating span {
+  animation: slotMachine 0.2s ease-in-out;
+  /* Mantieni la visibilità durante l'animazione */
+  opacity: 1 !important;
+  color: #ffffff !important;
+  visibility: visible !important;
+  /* Assicurati che il testo sia sempre sopra tutto */
+  z-index: 20;
+}
+
+/* Effetto flash per il cambio nome */
+.name-display.animating span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  animation: nameFlash 0.2s ease-in-out;
+  z-index: -1; /* Metti dietro al testo */
+}
+
+@keyframes nameFlash {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Indicatore per il nome attualmente visibile */
+.name-display::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 6px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8);
+  animation: indicatorPulse 2s ease-in-out infinite;
+}
+
+@keyframes indicatorPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scaleX(1); }
+  50% { opacity: 1; transform: translateX(-50%) scaleX(1.2); }
+}
+
+/* Animazione slot machine migliorata */
+@keyframes slotMachine {
+  0% {
+    transform: translateY(20px);
+    opacity: 1 !important; /* Mantieni sempre visibile */
+    color: #ffffff !important;
+    visibility: visible !important;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.9) !important;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1 !important;
+    color: #ffffff !important;
+    visibility: visible !important;
+    text-shadow: 0 0 40px rgba(59, 130, 246, 1) !important;
+  }
+  100% {
+    transform: translateY(-20px);
+    opacity: 1 !important;
+    color: #ffffff !important;
+    visibility: visible !important;
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.9) !important;
+  }
+}
+
+/* Effetto finale quando l'animazione si ferma */
+.name-display.final-result span {
+  animation: finalBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  visibility: visible !important;
+  text-shadow: 0 0 40px rgba(59, 130, 246, 1) !important;
+  /* Assicurati che il testo finale sia sempre visibile */
+  z-index: 30;
+}
+
+@keyframes finalBounce {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #ffffff !important;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.15);
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #ffffff !important;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Responsive design per evitare problemi su schermi piccoli */
+@media (max-width: 900px) {
+  .name-display {
+    width: 600px;
+    min-width: 600px;
+    max-width: 600px;
+  }
+  
+  .name-display span {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .name-display {
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+  }
+  
+  .name-display span {
+    font-size: 2.5rem;
+  }
+}
+
+/* Informazioni sulla musica */
+.music-info {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  border-radius: 10px;
+  color: #10b981;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+/* Team Selection */
+.team-selection {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.team-selection h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #3b82f6;
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.team-item {
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 15px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.team-item:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+.team-item.selected {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: #3b82f6;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+.team-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.team-item span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Confirm Button */
+.confirm-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  background: linear-gradient(45deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.confirm-btn:disabled {
+  background: rgba(107, 114, 128, 0.5);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.confirm-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+}
+
+/* Results List */
+.results-list {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.results-list h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #3b82f6;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.participant-name {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.team-name {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+/* Proceed Button */
+.proceed-btn {
+  display: block;
+  margin: 3rem auto;
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  background: linear-gradient(45deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+}
+
+.proceed-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(245, 158, 11, 0.4);
+}
+
+/* Loading and Error */
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #3b82f6;
+  margin: 3rem 0;
+}
+
+.error-message {
+  text-align: center;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  margin: 2rem 0;
+}
+
+.audio-error-message {
+  text-align: center;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin: 1rem 0;
+}
+
+/* Assicurati che il testo sia sempre visibile anche quando non ci sono nomi */
+.name-display:empty::before {
+  content: 'Preparazione...';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.9);
+  opacity: 1 !important;
+  visibility: visible !important;
+  z-index: 10;
+}
+
+/* Stile per il testo di preparazione quando non ci sono nomi */
+.name-display span:empty::before {
+  content: 'Preparazione...';
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Assicurati che il testo sia sempre visibile durante l'animazione */
+.name-display.animating span,
+.name-display span,
+.name-display.final-result span {
+  /* Forza sempre la visibilità */
+  visibility: visible !important;
+  display: flex !important;
+  opacity: 1 !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 30px rgba(59, 130, 246, 0.9) !important;
+  /* Previeni qualsiasi flickering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  /* Assicurati che sia sempre sopra tutto */
+  z-index: 50;
+}
+
+/* Stile specifico per l'animazione attiva */
+.name-display.animating span {
+  z-index: 60;
+}
+
+/* Stile specifico per il risultato finale */
+.name-display.final-result span {
+  z-index: 70;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .league-draw {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  
+  .league-draw__title {
+    font-size: 2rem;
+  }
+  
+  .name-display {
+    height: 150px; /* Ridotto per mobile ma ancora grande */
+    max-width: 90vw; /* Usa la larghezza della viewport */
+    margin: 1rem;
+  }
+  
+  .name-display span {
+    font-size: 2.5rem; /* Ridotto per mobile ma ancora leggibile */
+  }
+  
+  .team-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .music-info {
+    font-size: 0.9rem;
+  }
+  
+  .countdown-start-btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+  }
+}
